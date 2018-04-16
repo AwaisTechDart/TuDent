@@ -1,0 +1,51 @@
+<!--Header-->
+<nav class="navbar navbar-expand-lg navbar-light bg-color">
+  <a class="navbar-brand" [routerLink]="homeRoute"><i class="fa fa-graduation-cap cap_logo"></i><b>T</b><b class="color_change">u</b>D<b class="color_change">e</b><b>nt</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf="show == true" class="collapse navbar-collapse offset-3" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-center links">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="homeRoute"><b>HOME</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about"><b>ABOUT</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="signup/tutor"><b>APPLY FOR JOB</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="signup/normal"><b>APPLY FOR TUTOR</b></a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="show == true">
+    <ul class="float-right navbar-nav mr-auto text-center links">
+      <li class="nav-item">
+        <a class="nav-link" id="login-button" routerLink="signin"><b>SIGN IN</b></a>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="show == false" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto text-center links">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="homeRoute"><b>HOME</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about"><b>ABOUT</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="signup/tutor"><b>APPLY FOR JOB</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="signup/normal"><b>APPLY FOR TUTOR</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="login-button" routerLink="signin"><b>SIGN IN</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--Header-->

@@ -1,0 +1,23 @@
+.bg-color{
+    background-color: white;
+    box-shadow: 0px 0px 10px black;
+}
+.links>li>a:hover{
+    transition: 0.3s all;
+    transform: translateY(-4px);
+}
+.links>li>a{
+    transition: 0.3s all;
+}
+#login-button{
+    color: #e84118;
+}
+#login-button:hover{
+    color: #c23616;
+}
+.cap_logo{
+    color: #0652DD;
+}
+.color_change{
+    color: #0652DD;
+}
