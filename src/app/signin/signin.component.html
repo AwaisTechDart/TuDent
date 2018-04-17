@@ -9,11 +9,13 @@
 
         <mat-error *ngIf="logForm.get('username').hasError('pattern') 
         && !logForm.get('username').hasError('minlength') 
-        && logForm.get('username').dirty">Only letters,numbers and @ sign allowed</mat-error>
+        && logForm.get('username').dirty">Only letters,numbers and "@" and"." sign allowed</mat-error>
 
         <mat-error *ngIf="logForm.get('username').hasError('minlength') 
         && logForm.get('username').dirty 
         && !logForm.get('username').hasError('pattern')">Minimum 3 characters required</mat-error>
+        
+        <mat-error>Username does'nt found</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field class="form-fields form-fields_down">
@@ -23,6 +25,8 @@
 
         <mat-error *ngIf="logForm.get('password').hasError('minlength') 
         && logForm.get('password').dirty">Minimum 8 characters required</mat-error>
+
+        <mat-error>Password does'nt match</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field class="form-fields form-fields_down">
