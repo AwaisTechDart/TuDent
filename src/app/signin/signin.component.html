@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <form [formGroup]="logForm" (ngSubmit)="submit(logForm.value)" novalidate>
     <div class="col-md-4 form_elements text-center">
-      <h2>Sign in to proceed</h2>
+      <h2 class="text-capitalize">Sign in if you already created account</h2>
       <mat-form-field class="form-fields">
         <input matInput type="text" placeholder="Username" formControlName="username">
         <mat-error *ngIf="logForm.get('username').hasError('required') 
