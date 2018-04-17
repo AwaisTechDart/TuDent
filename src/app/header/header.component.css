@@ -5,6 +5,7 @@
 .links>li>a:hover{
     transition: 0.3s all;
     transform: translateY(-4px);
+    color: #673ab7;
 }
 .links>li>a{
     transition: 0.3s all;
@@ -16,8 +17,8 @@
     color: #c23616;
 }
 .cap_logo{
-    color: #0652DD;
+    color: #673ab7;
 }
 .color_change{
-    color: #0652DD;
+    color: #673ab7;
 }
