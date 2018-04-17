@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatSelectModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatRadioModule,
     FormsModule,
     HttpClientModule,
     MatInputModule,
@@ -52,8 +54,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
       {path: 'main', component: MainComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'about', component: AboutComponent},
-      {path: 'signup/tutor', component: SignupTutorComponent},
-      {path: 'signup/normal', component: SignupGeneralComponent},
+      {path: 'signup_tutor', component: SignupTutorComponent},
+      {path: 'signup_normal', component: SignupGeneralComponent},
       {path: 'signin', component: SigninComponent},
       {path: '**', component: NotFoundComponent}
     ])

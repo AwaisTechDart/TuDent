@@ -14,7 +14,7 @@ export class SigninComponent implements OnInit {
   constructor(private fb: FormBuilder, private service:SigninService) { 
     this.logForm = fb.group({
       'username': [null,Validators.compose([Validators.required,Validators.minLength(3),
-        Validators.pattern('[A-Za-z0-9@]*')])],
+        Validators.pattern('[A-Za-z0-9@.]*')])],
       'password': [null,Validators.compose([Validators.required,Validators.minLength(8)])],
       'accType': [null,Validators.required]
     });

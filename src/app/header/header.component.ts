@@ -12,10 +12,13 @@ homeRoute = 'home';
    }
 
   ngOnInit() {
-    console.log(window.innerWidth);
-    if(window.innerWidth <= 832){
-      this.show = false;
-    }
   }
 
+  changeHeader(){
+    if(window.innerWidth <= 832){
+      this.show = false;
+    }else{
+      this.show = true;
+    }
+  }
 }

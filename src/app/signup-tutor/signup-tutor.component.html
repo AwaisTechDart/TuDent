@@ -1,32 +1,65 @@
-<div class="container-fluid">
-  <form>
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <input type="text" placeholder="Enter Your Name">
-      </mat-form-field>
-      <mat-form-field class="w-100">
-        <input type="text" placeholder="Enter Your Username">
-      </mat-form-field>
-      <mat-form-field class="w-100">
-        <input type="text" placeholder="Enter Your Email">
-      </mat-form-field>
-      <mat-form-field class="w-100">
-          <input type="text" placeholder="Enter Your Password">
-      </mat-form-field>
+<form class="mt-5" [formGroup] = "form" (ngSubmit) = "submit(form.value)">               <!--Form Start-->
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+
+          <h2 class="text-capitalize" style="color: #673ab7;">Apply for Tutor Job</h2>
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="text" placeholder="Full Name" formControlName="fullname">
+            <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched">Field required</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="text" placeholder="Username" formControlName="username">
+            <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched">Field required</mat-error>
+            <mat-error>Mininum 3 character required</mat-error>
+            <mat-error>Username already exist</mat-error>
+            <mat-error>Only letters, numbers and '.' sign are allowed </mat-error>
+          </mat-form-field>
+        
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="password" placeholder="Password" formControlName="pass">
+            <mat-error>Field required</mat-error>
+            <mat-error>Minimum 8 character required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="password" placeholder="Confirm Password" formControlName="cpass">
+            <mat-error>Field required</mat-error>
+            <mat-error>Minimum 8 character required</mat-error>
+            <mat-error>Password Doesn`t Match</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="text" placeholder="CNIC" formControlName="cnic">
+            <mat-error>Field required</mat-error>
+            <mat-error>Invalid CNIC</mat-error>
+            <mat-error>Only numbers allowed</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 col-md-4">
+            <input matInput type="number" placeholder="Age" formControlName="age">
+            <mat-error>Field required</mat-error>
+            <mat-error>Minimum 12 years required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 col-md-8">
+            <input matInput type="email" placeholder="Email" formControlName="email">
+            <mat-error>Field required</mat-error>
+            <mat-error>Invalid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 col-md-4">
+            <mat-select placeholder="Select Gender" formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+            <mat-error>Field required</mat-error>
+          </mat-form-field>
+            <br>
+            <br>
+          <button type="submit" class="mb-2" mat-raised-button color = "primary">Continue</button>
+      </div>
     </div>
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-          <input type="text" placeholder="Enter Your Enter Your CNIC">
-        </mat-form-field>
-        <mat-form-field class="w-100">
-          <input type="text" placeholder="Enter Your Age">
-        </mat-form-field>
-        <mat-form-field class="w-100">
-          <input type="text" placeholder="Enter Your Enter Your Phone Number">
-        </mat-form-field>
-        <mat-form-field class="w-100">
-            <input type="radio">
-        </mat-form-field>
-    </div>
-  </form>
-</div>
+  </div>
+</form>
