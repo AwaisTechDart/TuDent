@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MatButtonModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatIconModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
@@ -47,6 +47,7 @@ import {MatRadioModule} from '@angular/material/radio';
     HttpClientModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},
