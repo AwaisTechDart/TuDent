@@ -6,14 +6,23 @@
         <input matInput type="text" placeholder="Username" formControlName="username">
         <mat-error *ngIf="logForm.get('username').hasError('required') 
         && logForm.get('username').touched">Field required</mat-error>
-        <mat-error *ngIf="logForm.get('username').hasError('pattern')">Only letters,numbers and @ sign allowed</mat-error>
-        <mat-error *ngIf="logForm.get('username').hasError('minlength') && logForm.get('username').dirty">Minimum 3 characters required</mat-error>
+
+        <mat-error *ngIf="logForm.get('username').hasError('pattern') 
+        && !logForm.get('username').hasError('minlength') 
+        && logForm.get('username').dirty">Only letters,numbers and @ sign allowed</mat-error>
+
+        <mat-error *ngIf="logForm.get('username').hasError('minlength') 
+        && logForm.get('username').dirty 
+        && !logForm.get('username').hasError('pattern')">Minimum 3 characters required</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field class="form-fields form-fields_down">
         <input matInput type="password" placeholder="Password" formControlName="password">
-        <mat-error *ngIf="logForm.get('password').hasError('required') && logForm.get('password').touched">Field required</mat-error>
-        <mat-error *ngIf="logForm.get('password').hasError('minlength') && logForm.get('password').dirty">Minimum 8 characters required</mat-error>
+        <mat-error *ngIf="logForm.get('password').hasError('required') 
+        && logForm.get('password').touched">Field required</mat-error>
+
+        <mat-error *ngIf="logForm.get('password').hasError('minlength') 
+        && logForm.get('password').dirty">Minimum 8 characters required</mat-error>
       </mat-form-field>
       <br />
       <mat-form-field class="form-fields form-fields_down">
@@ -21,7 +30,8 @@
           <mat-option value="teacher">Teacher</mat-option>
           <mat-option value="standard">Standard</mat-option>
         </mat-select>
-        <mat-error *ngIf="logForm.get('accType').hasError('required') && logForm.get('accType').touched">Field required</mat-error>
+        <mat-error *ngIf="logForm.get('accType').hasError('required') 
+        && logForm.get('accType').touched">Field required</mat-error>
       </mat-form-field>
       <br />
       <mat-checkbox class="float-left form-fields_down_more">Remember me</mat-checkbox>
