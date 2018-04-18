@@ -6,59 +6,122 @@
           <h2 class="text-capitalize" style="color: #673ab7;">Apply for Tutor Job</h2>
           <mat-form-field class="w-100 col-md-4">
             <input matInput type="text" placeholder="Full Name" formControlName="fullname">
-            <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched">Field required</mat-error>
+
+            <!--Types of error will be occurs in fullname field-->
+            <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched">
+              Field required
+            </mat-error>
+            <!--End Error-->
+
           </mat-form-field>
           
           <mat-form-field class="w-100 col-md-4">
             <input matInput type="text" placeholder="Username" formControlName="username">
-            <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched">Field required</mat-error>
-            <mat-error>Mininum 3 character required</mat-error>
-            <mat-error>Username already exist</mat-error>
-            <mat-error>Only letters, numbers and '.' sign are allowed </mat-error>
+
+            <!--Types of error will be occurs in username field-->
+            <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('username').hasError('minlength') && form.get('username').dirty">
+              Minimum 3 character required
+            </mat-error>
+            <mat-error *ngIf="!form.get('username').hasError('minlength') && form.get('username').dirty && form.get('username').hasError('pattern')">
+              Invalid username
+            </mat-error>
+            <!--End Error -->
+
           </mat-form-field>
         
           <mat-form-field class="w-100 col-md-4">
+
+            <!--Types of error will exist in password-->
             <input matInput type="password" placeholder="Password" formControlName="pass">
-            <mat-error>Field required</mat-error>
-            <mat-error>Minimum 8 character required</mat-error>
+            <mat-error *ngIf="form.get('pass').hasError('required') && form.get('pass').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('pass').hasError('minlength') && form.get('pass').dirty">
+              Minimum 8 character required
+            </mat-error>
+
+            <!--End-->
           </mat-form-field>
 
           <mat-form-field class="w-100 col-md-4">
+
+            <!--Types of error will be occurs in Confirm Password-->
             <input matInput type="password" placeholder="Confirm Password" formControlName="cpass">
-            <mat-error>Field required</mat-error>
-            <mat-error>Minimum 8 character required</mat-error>
-            <mat-error>Password Doesn`t Match</mat-error>
+            <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('cpass').hasError('minlength') && form.get('cpass').dirty">
+              Minimum 8 character required
+            </mat-error>
+            <mat-error *ngIf="form.get('cpass').value == form.get('pass').value">
+              Password Doesn`t Match
+            </mat-error>
+            
+            <!--End-->
           </mat-form-field>
 
           <mat-form-field class="w-100 col-md-4">
+            <!--Types of error in CNIC -->
             <input matInput type="text" placeholder="CNIC" formControlName="cnic">
-            <mat-error>Field required</mat-error>
-            <mat-error>Invalid CNIC</mat-error>
-            <mat-error>Only numbers allowed</mat-error>
+
+            <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
+              Minimum length 13 required
+            </mat-error>
+            <mat-error *ngIf="form.get('cnic').hasError('maxlength') && form.get('cnic').dirty">
+              Maximum length 13 required
+            </mat-error>
+            <mat-error *ngIf="form.get('cnic').hasError('pattern') && form.get('cnic').dirty && !form.get('cnic').hasError('minlength') && !form.get('cnic').hasError('maxlength')">
+              Special symbol not allowed
+            </mat-error>
+            <!--End Error -->
           </mat-form-field>
 
           <mat-form-field class="w-100 col-md-4">
             <input matInput type="number" placeholder="Age" formControlName="age">
-            <mat-error>Field required</mat-error>
-            <mat-error>Minimum 12 years required</mat-error>
+            <!--Types of error in Age-->
+            <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('age').hasError('min') && form.get('age').dirty">
+              Minimum 12 years required
+            </mat-error>
+            <!--Error-->
           </mat-form-field>
 
           <mat-form-field class="w-100 col-md-8">
             <input matInput type="email" placeholder="Email" formControlName="email">
-            <mat-error>Field required</mat-error>
-            <mat-error>Invalid email</mat-error>
+            <!--Types of error in Email-->
+            <mat-error *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+              Field required
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('pattern') && form.get('email').dirty">
+              Invalid email
+            </mat-error>
+            <!--End Error-->
           </mat-form-field>
 
           <mat-form-field class="w-100 col-md-4">
             <mat-select placeholder="Select Gender" formControlName="gender">
+              
               <mat-option value="male">Male</mat-option>
               <mat-option value="female">Female</mat-option>
             </mat-select>
-            <mat-error>Field required</mat-error>
+            <!--Type of error In Gender-->
+            <mat-error *ngIf="form.get('gender').hasError('required') && form.get('age').touched">
+              Field required
+            </mat-error>
           </mat-form-field>
             <br>
             <br>
           <button type="submit" class="mb-2" mat-raised-button color = "primary">Continue</button>
+          <br>
+          <br>
       </div>
     </div>
   </div>

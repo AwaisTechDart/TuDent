@@ -8,7 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupTutorComponent implements OnInit {
   form: FormGroup;
-
+  formValues;
+  nextComp = false;
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
       'fullname': [null, Validators.required],
@@ -16,9 +17,10 @@ export class SignupTutorComponent implements OnInit {
       'pass' : [null, Validators.compose([Validators.required, Validators.minLength(8)])],
       'cpass' : [null, Validators.compose([Validators.required, Validators.minLength(8)])],
       'cnic' : [null, Validators.compose([Validators.required,
-        Validators.minLength(14), Validators.pattern('[0-9]*'), Validators.maxLength(14)])],
+        Validators.minLength(13), Validators.pattern('[0-9]*'), Validators.maxLength(13)])],
       'age': [null, Validators.compose([Validators.required, Validators.min(12)])],
-      'email': [null, Validators.compose([Validators.required, Validators.pattern('[A-Za-z0-9@]*')])],
+      'email': [null, Validators.compose([Validators.required,
+        Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z]{2,}[.]{1}[a-zA-Z]*[.A-Za-z]{2,}')])],
       'gender': [null, Validators.required]
     });
   }
@@ -26,4 +28,11 @@ export class SignupTutorComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(data) {
+  if (this.form.valid === true) {
+    this.formValues = data;
+    this.nextComp = true;
+    console.log(data);
+  }
+  }
 }
