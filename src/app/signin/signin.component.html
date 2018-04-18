@@ -12,8 +12,8 @@
         && logForm.get('username').dirty">Only letters,numbers and "@" and"." sign allowed</mat-error>
 
         <mat-error *ngIf="logForm.get('username').hasError('minlength') 
-        && logForm.get('username').dirty 
-        && !logForm.get('username').hasError('pattern')">Minimum 3 characters required</mat-error>
+        && logForm.get('username').dirty
+        ">Minimum 3 characters required</mat-error>
         
         <mat-error>Username does'nt found</mat-error>
       </mat-form-field>
