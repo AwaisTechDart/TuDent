@@ -1,1 +1,71 @@
-<p>Sign up General Works</p>
+<form class="mt-5" [formGroup] = "formG" (ngSubmit) = "submit(formG.value)">               <!--Form Start-->
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+  
+            <h2 class="text-capitalize" style="color: #673ab7;">Apply for Hiring Tutor</h2>
+            <mat-form-field class="w-100 col-md-4">
+              <input matInput type="text" placeholder="Full Name" formControlName="fullname">
+              <mat-error *ngIf="formG.get('fullname').hasError('required') && formG.get('fullname').touched">Field required</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="w-100 col-md-4">
+              <input matInput type="text" placeholder="Username" formControlName="username">
+              <mat-error *ngIf="formG.get('username').hasError('required') && formG.get('username').touched">Field required</mat-error>
+              <mat-error *ngIf="formG.get('username').hasError('minlength') && formG.get('username').dirty">Mininum 3 character required</mat-error>
+              <mat-error *ngIf="formG.get('username').hasError('pattern') && formG.get('username').dirty && !formG.get('username').hasError('minlength')">Only letters, numbers and '.' sign are allowed </mat-error>
+              <mat-error>Username already exist</mat-error>
+            </mat-form-field>
+          
+            <mat-form-field class="w-100 col-md-4">
+              <input matInput type="password" placeholder="Password" formControlName="pass">
+              <mat-error *ngIf="formG.get('pass').hasError('required') && formG.get('pass').touched">Field required</mat-error>
+              <mat-error *ngIf="formG.get('pass').hasError('minlength') && formG.get('pass').dirty">Minimum 8 character required</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 col-md-4">
+              <input matInput type="password" placeholder="Confirm Password" formControlName="copass">
+              <mat-error *ngIf="formG.get('copass').hasError('required') && formG.get('copass').touched">Field required</mat-error>
+              <mat-error *ngIf="formG.get('copass').hasError('minlength') && formG.get('copass').dirty">Minimum 8 character required</mat-error>
+              <mat-error>Password Doesn`t Match</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="Enter Cell No" formControlName="cell">
+                <mat-error *ngIf="formG.get('cell').hasError('required') && formG.get('cell').touched">Field required</mat-error>
+                <mat-error *ngIf="formG.get('cell').hasError('pattern') && formG.get('cell').dirty">Invalid Cell No</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="Emergency No" formControlName="emNo">
+                <mat-error *ngIf="formG.get('emNo').hasError('required') && formG.get('emNo').touched">Field required</mat-error>
+                <mat-error *ngIf="formG.get('emNo').hasError('pattern') && formG.get('emNo').dirty">Invalid Cell Emergency No</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="CNIC" formControlName="cnic">
+                <mat-error *ngIf="formG.get('cnic').hasError('required') && formG.get('cnic').touched">Field required</mat-error>
+                <mat-error *ngIf="formG.get('cnic').hasError('pattern') && formG.get('cnic').dirty">Special symbols not allowed. Hint:31234567891239</mat-error>
+                <mat-error *ngIf="formG.get('cnic').hasError('minlength') && !formG.get('cnic').hasError('pattern') && formG.get('cnic').dirty">Minimum 14 character</mat-error>
+                <mat-error *ngIf="formG.get('cnic').hasError('maxlength') && !formG.get('cnic').hasError('pattern') && formG.get('cnic').dirty">Maximum 14 character</mat-error>
+              </mat-form-field>
+  
+            <mat-form-field class="w-100 col-md-4">
+              <input matInput type="email" placeholder="Email" formControlName="email">
+              <mat-error *ngIf="formG.get('email').hasError('required') && formG.get('email').touched">Field required</mat-error>
+              <mat-error *ngIf="formG.get('email').hasError('pattern') && formG.get('email').dirty">Invalid email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100 col-md-8">
+                <input matInput type="text" placeholder="Address" formControlName="address">
+                <mat-error *ngIf="formG.get('address').hasError('required') && formG.get('address').touched">Field required</mat-error>
+            </mat-form-field>
+              <br>
+              <br>
+            <button type="submit" class="mb-2" mat-raised-button color = "primary">Submit</button>
+              <br>
+              <br>
+        </div>
+      </div>
+    </div>
+  </form>
