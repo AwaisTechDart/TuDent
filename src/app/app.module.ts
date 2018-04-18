@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { MatButtonModule, MatInputModule, MatIconModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
-import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -20,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +28,13 @@ import {MatRadioModule} from '@angular/material/radio';
     HeaderComponent,
     HomeComponent,
     MainComponent,
-    FooterComponent,
     ProfileComponent,
     AboutComponent,
     NotFoundComponent,
     SignupTutorComponent,
     SignupGeneralComponent,
-    SigninComponent
+    SigninComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
