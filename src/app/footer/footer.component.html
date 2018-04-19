@@ -1,23 +1,46 @@
 
 <!--Footer-->
 <div class="page-footer  footer font-small stylish-color-dark pt-1 mt-4">
-    <div class="container-fluid text-center ">
-        <div class="row">
-            <div class="col-md-5 footer-div">
-                <div class=" pl-2 pr-2 feedback">
-                    <h3 class="font-weight-bold  mt-3">Are you satisfied?</h3>
-                    <h5 class="font-weight-bold mb-4">Give us feedback</h5>                 
-                    <form>
-                        <input class="form-control"type="email" placeholder="Email"><br />
-                        <textarea class="form-control" placeholder="Discription" name="" id="" cols="10" rows="5" ></textarea>
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-4 footer-div text-center">
+                <div class="feedback">
+                    <h4 class="font-weight-bold mb-4 mt-3">Give us feedback</h4>                 
+                    <form [formGroup] = 'form' (ngSubmit) = "submit(form.value)">
+                        <mat-form-field class="a w-75">
+                            <input matInput type="email" placeholder="Email">
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field class="b w-75">
+                            <textarea matInput placeholder="Comment" matTextareaAutosize matAutosizeMinRows="2"
+                            matAutosizeMaxRows="5"></textarea>
+                        </mat-form-field>
+                        <br />
                         <button class="mt-3 btn btn-outline-light">Submit</button>
                     </form>
                 </div> 
             </div>
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4 text-left">
+                            <h4 class="mb-4 mt-3 font-weight-bold">Sitemap</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Apply for Job</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Apply for Tutor</a>
+                                </li>
+                                <li>
+                                    <a href="#!">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-left">
                             <h4 class=" mb-4 mt-3 font-weight-bold">Contact Us</h4>
                             <ul class="list-unstyled">
                                 <li>
@@ -33,7 +56,9 @@
                                         <b>Address:</b> D-Ground p5/12 FSD
                                 </li>
                             </ul>
-                            <h3 class="mt-4">Follow us</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="follow mb-4 font-weight-bold mt-3">Follow us</h4>
                             <ul class="list-unstyled list-inline social">
                                 <li class="list-inline-item">
                                     <a>
@@ -56,31 +81,10 @@
                                     </a>
                                 </li>
                             </ul>
-                            <button mat-raised-button color="warn" class="mt-3">Sign in</button>
                         </div>
-                        <div class="col-md-6">
-                                <h4 class="mb-4 mt-3 font-weight-bold">Sitemap</h4>
-                                <ul class="list-unstyled">
-                                <li>
-                                    <a href="#!">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Apply for Job</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Apply for Tutor</a>
-                                </li>
-                                <li>
-                                    <a href="#!">About</a>
-                                </li>
-                                <li>
-                                    <a href="">Terms of Use</a>
-                                </li>
-                            </ul>
-                            <h4><a href="" >TechDart official website</a></h4>
-                            <a href=""><img src="assets/images/techdart logo.png" class="img-fluid" width="200px" alt=""></a>
-                            <p class="copyright"><b>Copyright © 2018 TechDart. All rights reserved.</b></p>
-                        </div>
+                    </div>
+                    <div style="margin-top: 15vh;">
+                        <p class="copyright"><b style="word-spacing: 10px;">Copyright © 2018 TechDart. All rights reserved.</b></p>
                     </div>
                 </div>
             </div>

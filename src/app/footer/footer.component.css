@@ -3,6 +3,11 @@
     background: #673ab7;
     bottom: 0%;
 }
+a:hover
+{
+    text-decoration: none;
+    color: black;
+}
 .social li a img{
     transition: transform .5s all;
     cursor: pointer;  
@@ -21,3 +26,39 @@ textarea{
 .footer-div{
     margin-bottom: 3%;
 }
+::ng-deep .a .mat-form-field-placeholder{
+
+  color:white;
+}
+
+::ng-deep  .a .mat-focused .mat-form-field-placeholder{
+
+  color:white;
+}
+::ng-deep  .a .mat-form-field-underline .mat-form-field-ripple{
+
+  background-color:white;
+}
+
+::ng-deep .a .mat-form-field-underline{
+
+  background-color:white;
+}
+::ng-deep .b .mat-form-field-placeholder{
+
+    color:white;
+  }
+  
+  ::ng-deep  .b .mat-focused .mat-form-field-placeholder{
+  
+    color:white;
+  }
+  ::ng-deep  .b .mat-form-field-underline .mat-form-field-ripple{
+  
+    background-color:white;
+  }
+  
+  ::ng-deep .b .mat-form-field-underline{
+  
+    background-color:white;
+  }
