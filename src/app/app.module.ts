@@ -2,7 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import {InViewportModule } from '@thisissoon/angular-inviewport';
+import {WindowRef } from '@thisissoon/angular-inviewport';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MatButtonModule, MatInputModule, MatIconModule } from '@angular/material';
@@ -28,6 +29,10 @@ import { WindowRef } from '@thisissoon/angular-inviewport';
 const providers = [
   { provide: WindowRef, useValue: window }
 ];
+
+const providers = [
+  {provide:WindowRef, useValue: window}
+]
 
 @NgModule({
   declarations: [
