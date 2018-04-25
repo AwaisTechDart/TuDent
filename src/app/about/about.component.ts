@@ -30,7 +30,8 @@ export class AboutComponent implements OnInit {
     if(this.show == true){
       //For all large cards
       var remPos = $('#card-row').offset().top - $(window).scrollTop();
-      if (remPos < 300 || remPos < -250) {
+      console.log(remPos);
+      if (remPos < 600 || remPos < -280) {
         $('#element1').css('opacity',1).css('transform', 'translateX(0%)');
         $('#element2').css('opacity',1).css('transform', 'translateX(0%)');
         $('#element3').css('opacity',1).css('transform', 'translateX(0%)');
