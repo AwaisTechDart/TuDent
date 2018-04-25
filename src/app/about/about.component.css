@@ -1,0 +1,85 @@
+.card{
+    transition: 0.3s all;
+}
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+.card-div-element1{
+    transition: 1.6s all;
+    transform: translateX(-45vh);
+    opacity: 0;
+}
+.card-div-element2{
+    transition: 1.4s all;
+    transform: translateX(-90vh);
+    opacity: 0;
+}
+.card-div-element3{
+    transition: 1.2s all;
+    transform: translateX(-150vh);
+    opacity: 0;
+}
+.card-div-element4{
+    transition: 1s all;
+    transform: translateX(-170vh);
+    opacity: 0;
+}
+
+.card-div-element1.sn-viewport-in{
+    transform: translateX(0vh);
+    opacity: 1;
+}
+.card-div-element2.sn-viewport-in{
+    transform: translateX(0vh);
+    opacity: 1;
+}
+.card-div-element3.sn-viewport-in{
+    transform: translateX(0vh);
+    opacity: 1;
+}
+.card-div-element4.sn-viewport-in{
+    transform: translateX(0vh);
+    opacity: 1;
+}
+
+
+.card-div-small1{
+    transition: 1s all;
+    transform: scale(1.02);
+    opacity: 0;
+}
+.card-div-small2{
+    transition: 1s all;
+    transform: scale(1.02);
+    opacity: 0;
+}
+.card-div-small3{
+    transition: 1s all;
+    transform: scale(1.02);
+    opacity: 0;
+}
+.card-div-small4{
+    transition: 1s all;
+    transform: scale(1.02);
+    opacity: 0;
+}
+
+.card-div-small1.sn-viewport-in{
+    transform: scale(1);
+    opacity: 1;
+}
+.card-div-small2.sn-viewport-in{
+    transform: scale(1);
+    opacity: 1;
+}
+.card-div-small3.sn-viewport-in{
+    transform: scale(1);
+    opacity: 1;
+}
+.card-div-small4.sn-viewport-in{
+    transform: scale(1);
+    opacity: 1;
+}
