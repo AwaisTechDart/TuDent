@@ -51,7 +51,9 @@ export class SignupTutorComponent implements OnInit {
       this.formValues = data;
       this.formValues = this.formValues + data1;
       this.formValues = this.formValues + data2;
-      console.log(this.formValues);
+      this.serv.signup(this.formValues).subscribe( (result) => {
+        
+      });
     }
   }
 

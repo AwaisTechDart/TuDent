@@ -2,8 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {InViewportModule } from '@thisissoon/angular-inviewport';
-import {WindowRef } from '@thisissoon/angular-inviewport';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MatButtonModule, MatInputModule, MatIconModule, MatStepperModule } from '@angular/material';
@@ -22,6 +20,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
+import {InViewportModule } from '@thisissoon/angular-inviewport';
+import {WindowRef } from '@thisissoon/angular-inviewport';
 
 
 const providers = [
