@@ -1,128 +1,218 @@
-<form class="mt-5" [formGroup] = "form" (ngSubmit) = "submit(form.value)">               <!--Form Start-->
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 ml-auto mr-auto text-center">
-
-          <h2 class="text-capitalize" style="color: #673ab7;">Apply for Tutor Job</h2>
-          <mat-form-field class="w-100 col-md-4">
-            <input matInput type="text" placeholder="Full Name" formControlName="fullname">
-
-            <!--Types of error will be occurs in fullname field-->
-            <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched">
-              Field required
-            </mat-error>
-            <!--End Error-->
-
-          </mat-form-field>
-          
-          <mat-form-field class="w-100 col-md-4">
-            <input matInput type="text" placeholder="Username" formControlName="username">
-
-            <!--Types of error will be occurs in username field-->
-            <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('username').hasError('minlength') && form.get('username').dirty">
-              Minimum 3 character required
-            </mat-error>
-            <mat-error *ngIf="!form.get('username').hasError('minlength') && form.get('username').dirty && form.get('username').hasError('pattern')">
-              Invalid username
-            </mat-error>
-            <!--End Error -->
-
-          </mat-form-field>
-        
-          <mat-form-field class="w-100 col-md-4">
-
-            <!--Types of error will exist in password-->
-            <input matInput type="password" placeholder="Password" formControlName="pass">
-            <mat-error *ngIf="form.get('pass').hasError('required') && form.get('pass').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('pass').hasError('minlength') && form.get('pass').dirty">
-              Minimum 8 character required
-            </mat-error>
-
-            <!--End-->
-          </mat-form-field>
-
-          <mat-form-field class="w-100 col-md-4">
-
-            <!--Types of error will be occurs in Confirm Password-->
-            <input matInput type="password" placeholder="Confirm Password" formControlName="cpass">
-            <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('cpass').hasError('minlength') && form.get('cpass').dirty">
-              Minimum 8 character required
-            </mat-error>
-            <mat-error *ngIf="form.get('cpass').value == form.get('pass').value">
-              Password Doesn`t Match
-            </mat-error>
-            
-            <!--End-->
-          </mat-form-field>
-
-          <mat-form-field class="w-100 col-md-4">
-            <!--Types of error in CNIC -->
-            <input matInput type="text" placeholder="CNIC" formControlName="cnic">
-
-            <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
-              Minimum length 13 required
-            </mat-error>
-            <mat-error *ngIf="form.get('cnic').hasError('maxlength') && form.get('cnic').dirty">
-              Maximum length 13 required
-            </mat-error>
-            <mat-error *ngIf="form.get('cnic').hasError('pattern') && form.get('cnic').dirty && !form.get('cnic').hasError('minlength') && !form.get('cnic').hasError('maxlength')">
-              Special symbol not allowed
-            </mat-error>
-            <!--End Error -->
-          </mat-form-field>
-
-          <mat-form-field class="w-100 col-md-4">
-            <input matInput type="number" placeholder="Age" formControlName="age">
-            <!--Types of error in Age-->
-            <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('age').hasError('min') && form.get('age').dirty">
-              Minimum 12 years required
-            </mat-error>
-            <!--Error-->
-          </mat-form-field>
-
-          <mat-form-field class="w-100 col-md-8">
-            <input matInput type="email" placeholder="Email" formControlName="email">
-            <!--Types of error in Email-->
-            <mat-error *ngIf="form.get('email').hasError('required') && form.get('email').touched">
-              Field required
-            </mat-error>
-            <mat-error *ngIf="form.get('email').hasError('pattern') && form.get('email').dirty">
-              Invalid email
-            </mat-error>
-            <!--End Error-->
-          </mat-form-field>
-
-          <mat-form-field class="w-100 col-md-4">
-            <mat-select placeholder="Select Gender" formControlName="gender">
+<mat-horizontal-stepper [linear] = "true" #stepper = "matHorizontalStepper">
+  <mat-step [stepControl] = "form">
+      <form class="mt-5" [formGroup] = "form">               <!--Form Start-->
+        <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-8 ml-auto mr-auto text-center">
+                <ng-template matStepLabel>Apply for Tutor Job</ng-template>
+                <mat-form-field class="w-100 col-md-4">
+                  <input matInput type="text" placeholder="Full Name" formControlName="fullname">
+                  <!--Types of error will be occurs in fullname field-->
+                  <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched || form.invalid ">
+                    Field required
+                  </mat-error>
+                  <!--End Error-->
+                </mat-form-field>
+                
+                <mat-form-field class="w-100 col-md-4">
+                  <input matInput type="text" placeholder="Username" formControlName="username">
+                  <!--Types of error will be occurs in username field-->
+                  <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('username').hasError('minlength') && form.get('username').dirty">
+                    Minimum 3 character required
+                  </mat-error>
+                  <mat-error *ngIf="!form.get('username').hasError('minlength') && form.get('username').dirty && form.get('username').hasError('pattern')">
+                    Invalid username
+                  </mat-error>
+                  <!--End Error -->
+                </mat-form-field>
               
-              <mat-option value="male">Male</mat-option>
-              <mat-option value="female">Female</mat-option>
-            </mat-select>
-            <!--Type of error In Gender-->
-            <mat-error *ngIf="form.get('gender').hasError('required') && form.get('age').touched">
-              Field required
-            </mat-error>
-          </mat-form-field>
-            <br>
-            <br>
-          <button type="submit" class="mb-2" mat-raised-button color = "primary">Continue</button>
-          <br>
-          <br>
+                <mat-form-field class="w-100 col-md-4">
+                  <!--Types of error will exist in password-->
+                  <input matInput type="password" placeholder="Password" formControlName="pass">
+                  <mat-error *ngIf="form.get('pass').hasError('required') && form.get('pass').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('pass').hasError('minlength') && form.get('pass').dirty">
+                    Minimum 8 character required
+                  </mat-error>
+                  <!--End-->
+                </mat-form-field>
+      
+                <mat-form-field class="w-100 col-md-4">
+                  <!--Types of error will be occurs in Confirm Password-->
+                  <input matInput type="password" placeholder="Confirm Password" formControlName="cpass">
+                  <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('cpass').hasError('minlength') && form.get('cpass').dirty">
+                    Minimum 8 character required
+                  </mat-error>
+                  <mat-error *ngIf="">
+                    Password Doesn`t Match
+                  </mat-error>
+                  <!--End-->
+                </mat-form-field>
+      
+                <mat-form-field class="w-100 col-md-4">
+                  <!--Types of error in CNIC -->
+                  <input matInput type="text" placeholder="CNIC" formControlName="cnic">
+                  <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
+                    Minimum length 13 required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('cnic').hasError('maxlength') && form.get('cnic').dirty">
+                    Maximum length 13 required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('cnic').hasError('pattern') && form.get('cnic').dirty && !form.get('cnic').hasError('minlength') && !form.get('cnic').hasError('maxlength')">
+                    Special symbol not allowed
+                  </mat-error>
+                  <!--End Error -->
+                </mat-form-field>
+      
+                <mat-form-field class="w-100 col-md-4">
+                  <input matInput type="number" placeholder="Age" formControlName="age">
+                  <!--Types of error in Age-->
+                  <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('age').hasError('min') && form.get('age').dirty">
+                    Minimum 12 years required
+                  </mat-error>
+                  <!--Error-->
+                </mat-form-field>
+      
+                <mat-form-field class="w-100 col-md-8">
+                  <input matInput type="email" placeholder="Email" formControlName="email">
+                  <!--Types of error in Email-->
+                  <mat-error *ngIf="form.get('email').hasError('required') && form.get('email').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                  <mat-error *ngIf="form.get('email').hasError('pattern') && form.get('email').dirty">
+                    Invalid email
+                  </mat-error>
+                  <!--End Error-->
+                </mat-form-field>
+      
+                <mat-form-field class="w-100 col-md-4">
+                  <mat-select placeholder="Select Gender" formControlName="gender">
+                    
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                  </mat-select>
+                  <!--Type of error In Gender-->
+                  <mat-error *ngIf="form.get('gender').hasError('required') && form.get('age').touched || form.invalid">
+                    Field required
+                  </mat-error>
+                </mat-form-field>
+                <br>
+                <br>
+                <button matStepperNext class="mb-2" mat-raised-button color = "primary">Next</button>
+                <br>
+                <br>
+            </div>
+          </div>
+        </div>
+      </form>
+  </mat-step>
+
+<!--2nd Step of Stepper-->
+
+  <mat-step [stepControl] = "form1">
+    <!--After CONTINUE Press This form will appear-->
+
+    <form class="mt-5" [formGroup] = "form1">               <!--Form Start-->
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <ng-template matStepLabel>Personal Details</ng-template>
+              <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="Cell" formControlName="cell">
+                <!--Types of error will be occurs in cell field-->
+                <mat-error *ngIf="form1.get('cell').hasError('required') && form1.get('cell').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--End Error-->
+              </mat-form-field>
+              
+              <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="Address" formControlName="address">
+                <!--Types of error will be occurs in Address field-->
+                <mat-error *ngIf="form1.get('address').hasError('required') && form1.get('address').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--End Error -->
+              </mat-form-field>
+            
+              <mat-form-field class="w-100 col-md-4">
+                <!--Types of error will exist in Teacher Statement-->
+                <input matInput type="text" placeholder="Personal Statemnt" formControlName="ps">
+                <mat-error *ngIf="form1.get('ps').hasError('required') && form1.get('ps').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--End-->
+              </mat-form-field>
+
+              <mat-form-field class="w-100 col-md-4">
+                <input matInput type="text" placeholder="Subject Expertise" formControlName="se">
+                <!--Types of error in Age-->
+                <mat-error *ngIf="form1.get('se').hasError('required') && form1.get('se').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--Error-->
+              </mat-form-field>
+
+              <mat-form-field class="w-100 col-md-4">
+                <textarea matInput type="text" placeholder="Education" formControlName="edu" matTextareaAutosize matAutosizeMinRows="2"></textarea>
+                <!--Types of error will be occurs in Teacher Education-->
+                <mat-error *ngIf="form1.get('edu').hasError('required') && form1.get('edu').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--End-->
+              </mat-form-field>
+
+              <mat-form-field class="w-100 col-md-4">
+                <textarea matInput type="text" placeholder="Teaching Experiance" formControlName="exp" matTextareaAutosize matAutosizeMinRows="2"></textarea>
+                <!--Types of error will be occurs in Teacher Experiance-->
+                <mat-error *ngIf="form1.get('exp').hasError('required') && form1.get('exp').touched || form.invalid">
+                  Field required
+                </mat-error>
+                <!--End-->
+              </mat-form-field>
+
+              <br>
+              <br>
+
+              <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
+              <button matStepperNext class="mb-2" mat-raised-button color = "primary">Next</button>
+              <br>
+              <br>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</form>
+    </form>
+  </mat-step>
+
+  <!--Third Step of Material Stepper-->
+  <mat-step [stepControl] = "form2">
+    <ng-template matStepLabel>Done</ng-template>
+    <form class="mt-5" [formGroup] = "form2" (ngSubmit) = "submit(form.value, form1.value, form2.value)">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 text-center ml-auto mr-auto">
+            <input (click) = "abc()" type="checkbox" formControlName = "agree"><label style="font-size: 12px; ">&nbsp; By clicking "Register", you agree to the <a href="#">Terms and Privacy Policy</a></label>
+            <br>
+            <br>
+            <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
+            <button [disabled] = "checked" class="mb-2" mat-raised-button color = "primary">Done</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+

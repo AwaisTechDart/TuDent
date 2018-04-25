@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class SignupTutorService {
 
   constructor(private http: HttpClient) { }
-post(data) {
+post(data, data1) {
   return this.http.post('', {
     'fullname': data.fullname,
     'username' : data.username,
