@@ -20,13 +20,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
-import {InViewportModule } from '@thisissoon/angular-inviewport';
-import {WindowRef } from '@thisissoon/angular-inviewport';
-
-
-const providers = [
-  { provide: WindowRef, useValue: window }
-];
 
 @NgModule({
   declarations: [
@@ -55,7 +48,6 @@ const providers = [
     MatButtonModule,
     MatIconModule,
     MatStepperModule,
-    InViewportModule.forRoot(providers),
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},

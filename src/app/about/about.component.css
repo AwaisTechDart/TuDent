@@ -9,47 +9,28 @@
 
 .card-div-element1{
     transition: 1.6s all;
-    transform: translateX(-45vh);
+    transform: translateX(-45%);
     opacity: 0;
 }
 .card-div-element2{
     transition: 1.4s all;
-    transform: translateX(-90vh);
+    transform: translateX(-90%);
     opacity: 0;
 }
 .card-div-element3{
     transition: 1.2s all;
-    transform: translateX(-150vh);
+    transform: translateX(-140%);
     opacity: 0;
 }
 .card-div-element4{
     transition: 1s all;
-    transform: translateX(-170vh);
+    transform: translateX(-160%);
     opacity: 0;
-}
-
-.card-div-element1.sn-viewport-in{
-    transform: translateX(0vh);
-    opacity: 1;
-}
-.card-div-element2.sn-viewport-in{
-    transform: translateX(0vh);
-    opacity: 1;
-}
-.card-div-element3.sn-viewport-in{
-    transform: translateX(0vh);
-    opacity: 1;
-}
-.card-div-element4.sn-viewport-in{
-    transform: translateX(0vh);
-    opacity: 1;
 }
 
 
 .card-div-small1{
-    transition: 1s all;
-    transform: scale(1.02);
-    opacity: 0;
+    animation: showCard1 1s;
 }
 .card-div-small2{
     transition: 1s all;
@@ -67,19 +48,16 @@
     opacity: 0;
 }
 
-.card-div-small1.sn-viewport-in{
-    transform: scale(1);
-    opacity: 1;
+@keyframes showCard1{
+    from {transform: scale(1.02);
+        opacity: 0;}
+    to {transform: scale(1);
+        opacity: 1;}
 }
-.card-div-small2.sn-viewport-in{
-    transform: scale(1);
-    opacity: 1;
-}
-.card-div-small3.sn-viewport-in{
-    transform: scale(1);
-    opacity: 1;
-}
-.card-div-small4.sn-viewport-in{
-    transform: scale(1);
-    opacity: 1;
+
+@-webkit-keyframes showcard {
+    from {transform: scale(1.02);
+        opacity: 0;}
+    to {transform: scale(1);
+        opacity: 1;}
 }

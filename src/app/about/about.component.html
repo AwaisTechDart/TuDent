@@ -24,11 +24,11 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="container-fluid text-center mt-4" (window:resize)="smallSize()">
+<div class="container-fluid text-center mt-4" (window:resize)="smallSize()" (window:scroll) = "scrolling()">
   <!--Large Screens-->
-  <div class="row" *ngIf="show == true">
+  <div class="row" id="card-row" *ngIf="show == true">
     <div class="col-md-3 text-center ml-auto mr-auto " >
-      <div class="card card-div-element1" snInViewport>
+      <div class="card card-div-element1" id="element1" >
         <img class="card-img-top" src="assets/images/goals.jpg" alt="Goals image">
         <div class="card-body">
           <h5 class="card-title">Goals</h5>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="col-md-3" >
-      <div class="card card-div-element2" snInViewport>
+      <div class="card card-div-element2" id="element2" >
         <img class="card-img-top" src="assets/images/privacy.jpg" alt="Privacy image">
         <div class="card-body">
           <h5 class="card-title">Privacy</h5>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="col-md-3 ">
-      <div class="card card-div-element3" snInViewport>
+      <div class="card card-div-element3" id="element3" >
         <img class="card-img-top" src="assets/images/team.jpg" alt="Team image">
         <div class="card-body">
           <h5 class="card-title">Team</h5>
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="col-md-3 text-center ml-auto mr-auto" >
-      <div class="card card-div-element4" snInViewport>
+      <div class="card card-div-element4" id="element4" >
         <img class="card-img-top" src="assets/images/ContractLaw.jpg" alt="Terms of use image">
         <div class="card-body">
           <h5 class="card-title">Terms of use</h5>
@@ -72,7 +72,7 @@
   <!--Small Screens-->
   <div class="row" *ngIf="show == false">
     <div class="col-md-3 text-center ml-auto mr-auto " >
-      <div class="card card-div-small1" snInViewport>
+      <div class="card card-div-small1" id="card-div-small1">
         <img class="card-img-top" src="assets/images/goals.jpg" alt="Goals image">
         <div class="card-body">
           <h5 class="card-title">Goals</h5>
@@ -82,7 +82,7 @@
       </div>
     </div>
     <div class="col-md-3" >
-      <div class="card card-div-small2 mt-3" snInViewport>
+      <div class="card card-div-small2 mt-3" id="card-div-small2" >
         <img class="card-img-top" src="assets/images/privacy.jpg" alt="Privacy image">
         <div class="card-body">
           <h5 class="card-title">Privacy</h5>
@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="col-md-3 ">
-      <div class="card card-div-small3 mt-3" snInViewport>
+      <div class="card card-div-small3 mt-3" id="card-div-small3">
         <img class="card-img-top" src="assets/images/team.jpg" alt="Team image">
         <div class="card-body">
           <h5 class="card-title">Team</h5>
@@ -102,7 +102,7 @@
       </div>
     </div>
     <div class="col-md-3 text-center ml-auto mr-auto" >
-      <div class="card card-div-small4 mt-3" snInViewport>
+      <div class="card card-div-small4 mt-3" id="card-div-small4">
         <img class="card-img-top" src="assets/images/ContractLaw.jpg" alt="Terms of use image">
         <div class="card-body">
           <h5 class="card-title">Terms of use</h5>
@@ -114,38 +114,62 @@
   </div>
 </div>
 
-<div style="background-color: #f1f2f6">
-  <div class="container mt-4 text-center p-4">
-    <h1>Goals</h1>
-    <p>Our Goals are to blah blah blaha kjashdkajhsd askdhkajsd 
-      akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
-      ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd</p>
+<div class="container-fluid mt-4 text-center p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Goals</h1>
+      <p>Our Goals are to blah blah blaha kjashdkajhsd askdhkajsd 
+        akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
+        ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="..." alt="Images">
+    </div>
   </div>
 </div>
 
-<div style="background-color: #f1f2f6">
-  <div class="container mt-4 text-center p-4">
-    <h1>Privacy</h1>
-    <p>Our privacy are to blah blah blaha kjashdkajhsd askdhkajsd 
-      akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
-      ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd</p>
+<div class="container-fluid mt-4 text-center p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Goals</h1>
+      <p>Our Goals are to blah blah blaha kjashdkajhsd askdhkajsd 
+        akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
+        ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="..." alt="Images">
+    </div>
   </div>
 </div>
 
-<div style="background-color: #f1f2f6">
-  <div class="container mt-4 text-center p-4">
-    <h1>Team</h1>
-    <p>Our privacy are to blah blah blaha kjashdkajhsd askdhkajsd 
-      akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
-      ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd</p>
+<div class="container-fluid mt-4 text-center p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Goals</h1>
+      <p>Our Goals are to blah blah blaha kjashdkajhsd askdhkajsd 
+        akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
+        ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="..." alt="Images">
+    </div>
   </div>
 </div>
 
-<div style="background-color: #f1f2f6">
-  <div class="container mt-4 text-center p-4">
-    <h1>Terms of use</h1>
-    <p>Our privacy are to blah blah blaha kjashdkajhsd askdhkajsd 
-      akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
-      ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd</p>
+<div class="container-fluid mt-4 text-center p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Goals</h1>
+      <p>Our Goals are to blah blah blaha kjashdkajhsd askdhkajsd 
+        akjsdhjkasd jkasdhkasd kjahsdkajd dashdkj ashdajkdhajksdhasjkdh kjashdjkahd 
+        ajkshdkajd hkajd hkajd hkajd hjkasdhkasjdh kasjd hhk jkahsdkjashd jkahdskjasd jkahsdjkashd
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="..." alt="Images">
+    </div>
   </div>
 </div>
