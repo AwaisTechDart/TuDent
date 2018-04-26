@@ -75,7 +75,7 @@
                 </mat-form-field>
       
                 <mat-form-field class="w-100 col-md-4">
-                  <input matInput type="number" placeholder="Age" formControlName="age">
+                  <input matInput type="number" placeholder="Age" min="0" formControlName="age">
                   <!--Types of error in Age-->
                   <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched || form.invalid">
                     Field required
@@ -105,13 +105,13 @@
                     <mat-option value="female">Female</mat-option>
                   </mat-select>
                   <!--Type of error In Gender-->
-                  <mat-error *ngIf="form.get('gender').hasError('required') && form.get('age').touched || form.invalid">
+                  <mat-error *ngIf="form.get('gender').hasError('required') && form.get('gender').touched || form.invalid">
                     Field required
                   </mat-error>
                 </mat-form-field>
                 <br>
                 <br>
-                <button matStepperNext class="mb-2" mat-raised-button color = "primary">Next</button>
+                <button matStepperNext class="mb-2" mat-raised-button color = "primary" type="submit" >Next</button>
                 <br>
                 <br>
             </div>
@@ -188,7 +188,7 @@
               <br>
 
               <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
-              <button matStepperNext class="mb-2" mat-raised-button color = "primary">Next</button>
+              <button matStepperNext class="mb-2" mat-raised-button color = "primary" type="submit" >Next</button>
               <br>
               <br>
           </div>
@@ -204,11 +204,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 text-center ml-auto mr-auto">
-            <input (click) = "abc()" type="checkbox" formControlName = "agree"><label style="font-size: 12px; ">&nbsp; By clicking "Register", you agree to the <a href="#">Terms and Privacy Policy</a></label>
+            <input (click) = "changeState()" type="checkbox" formControlName = "agree"><label style="font-size: 12px; ">&nbsp; By clicking "Register", you agree to the <a href="#">Terms and Privacy Policy</a></label>
             <br>
             <br>
             <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
-            <button [disabled] = "checked" class="mb-2" mat-raised-button color = "primary">Done</button>
+            <button [disabled] = "checked" class="mb-2" mat-raised-button color = "primary" type="submit" >Done</button>
           </div>
         </div>
       </div>
