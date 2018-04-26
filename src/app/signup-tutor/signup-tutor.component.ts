@@ -13,7 +13,6 @@ export class SignupTutorComponent implements OnInit {
   form: FormGroup;
   form1: FormGroup;
   form2: FormGroup;
-  formValues;
   checked = true;
   constructor(private fb: FormBuilder, private serv: SignupTutorService) {
     this.form = fb.group({
@@ -48,16 +47,13 @@ export class SignupTutorComponent implements OnInit {
 
   submit(data, data1, data2) {
     if (this.form.valid === true) {
-      this.formValues = data;
-      this.formValues = this.formValues + data1;
-      this.formValues = this.formValues + data2;
-      this.serv.signup(this.formValues).subscribe( (result) => {
+      this.serv.signup(data, data1, data2).subscribe( (result) => {
         
       });
     }
   }
 
-  abc() {
+  changeState() {
     if (this.checked === true) {
       this.checked = false;
     } else {
