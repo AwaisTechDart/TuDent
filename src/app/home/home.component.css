@@ -1,0 +1,18 @@
+.img{
+    /* background: url('assets/images/carasoul_img/child2.jpg') center center no-repeat fixed cover; */
+    background-image: url('assets/images/carasoul_img/child2.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    text-align: center;
+    padding: 10%;
+}
+h1{
+    color: white;
+    text-shadow: 0 0 50px #28a745;
+}
+button{
+    margin-top: 5%;
+    width: 200px;
+}
