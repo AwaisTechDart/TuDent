@@ -54,10 +54,3 @@
     to {transform: scale(1);
         opacity: 1;}
 }
-
-@-webkit-keyframes showcard {
-    from {transform: scale(1.02);
-        opacity: 0;}
-    to {transform: scale(1);
-        opacity: 1;}
-}
