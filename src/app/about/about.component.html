@@ -24,8 +24,9 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<!--Large Screens-->
 <div class="container-fluid text-center mt-4" (window:resize)="smallSize()" (window:scroll) = "scrolling()">
-  <!--Large Screens-->
   <div class="row" id="card-row" *ngIf="show == true">
     <div class="col-md-3 text-center ml-auto mr-auto " >
       <div class="card card-div-element1" id="element1" >
