@@ -20,6 +20,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { TeachersListComponent } from './teachers-list/teachers-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { FooterComponent } from './footer/footer.component';
     SignupGeneralComponent,
     SigninComponent,
     FooterComponent,
+    SearchComponent,
+    TeachersListComponent,
   ],
   imports: [
     BrowserModule,

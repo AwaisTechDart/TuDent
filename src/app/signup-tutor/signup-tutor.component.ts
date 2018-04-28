@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignupTutorService } from './signup-tutor.service';
 
 @Component({
-  selector: 'app-signup-tutor',
+  selector: 'signup-tutor',
   templateUrl: './signup-tutor.component.html',
   styleUrls: ['./signup-tutor.component.css'],
   providers: [SignupTutorService]
