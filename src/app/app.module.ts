@@ -49,9 +49,8 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatStepperModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'main', component: MainComponent},
+      {path: '', component: MainComponent},
+      {path: 'home', component: MainComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'about', component: AboutComponent},
       {path: 'signup_tutor', component: SignupTutorComponent},
