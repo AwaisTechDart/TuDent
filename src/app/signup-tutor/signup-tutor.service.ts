@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class SignupTutorService {
 
   constructor(private http: HttpClient) { }
-  signup(data,data1,data2) {
+  signup(data, data1, data2) {
     return this.http.post('', {
       'fullname': data.fullname,
       'username' : data.username,
@@ -15,13 +15,12 @@ export class SignupTutorService {
       'age' : data.age,
       'cnic' : data.cnic,
       'gender' : data.gender,
-      'cell' : data1.cell,
-      'address' : data1.address,
-      'per_statement' : data1.ps,
-      'education' : data1.edu,
-      'subject_expertise' : data1.se,
-      'experiance' : data1.exp,
-      'contract' : data2.agree
+      'cell' : data.cell,
+      'address' : data.address,
+      'per_statement' : data.ps,
+      'education' : data.edu,
+      'subject_expert' : data.se,
+      'exp' : data.exp,
     });
   }
 }
