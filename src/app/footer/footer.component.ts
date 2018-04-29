@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
   providers: [FooterService]

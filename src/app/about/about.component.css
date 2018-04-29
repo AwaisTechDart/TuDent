@@ -7,44 +7,24 @@
 }
 
 
-.card-div-element1{
+#element1{
     transition: 1.6s all;
-    transform: translateX(-45%);
+    transform: translateX(-10%);
     opacity: 0;
 }
-.card-div-element2{
+#element2{
     transition: 1.4s all;
-    transform: translateX(-90%);
+    transform: translateX(-10%);
     opacity: 0;
 }
-.card-div-element3{
+#element3{
     transition: 1.2s all;
-    transform: translateX(-140%);
+    transform: translateX(-10%);
     opacity: 0;
 }
-.card-div-element4{
+#element4{
     transition: 1s all;
-    transform: translateX(-160%);
-    opacity: 0;
-}
-
-
-.card-div-small1{
-    animation: showCard1 1s;
-}
-.card-div-small2{
-    transition: 1s all;
-    transform: scale(1.02);
-    opacity: 0;
-}
-.card-div-small3{
-    transition: 1s all;
-    transform: scale(1.02);
-    opacity: 0;
-}
-.card-div-small4{
-    transition: 1s all;
-    transform: scale(1.02);
+    transform: translateX(-10%);
     opacity: 0;
 }
 

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignupGeneralService } from './signup-general.service';
 
 @Component({
-  selector: 'app-signup-general',
+  selector: 'signup-general',
   templateUrl: './signup-general.component.html',
   styleUrls: ['./signup-general.component.css'],
   providers:[SignupGeneralService]
