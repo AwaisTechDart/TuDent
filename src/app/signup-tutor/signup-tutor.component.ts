@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignupTutorService } from './signup-tutor.service';
 
 @Component({
-  selector: 'signup-tutor',
+  selector: 'app-signup-tutor',
   templateUrl: './signup-tutor.component.html',
   styleUrls: ['./signup-tutor.component.css'],
   providers: [SignupTutorService]
@@ -13,6 +13,7 @@ export class SignupTutorComponent implements OnInit {
   form: FormGroup;
   form1: FormGroup;
   checked = true;
+  hide = true;
   constructor(private fb: FormBuilder, private serv: SignupTutorService) {
     this.form = fb.group({
       'fullname': [null, Validators.required],
@@ -34,9 +35,8 @@ export class SignupTutorComponent implements OnInit {
       'edu' : [null, Validators.required],
       'exp' : [null, Validators.required],
       'se': [null, Validators.required],
-      'agree': [null],
+      'agree': [null]
     });
-
   }
 
   ngOnInit() {
@@ -46,15 +46,14 @@ export class SignupTutorComponent implements OnInit {
     if (this.form.valid === true) {
       this.serv.signup(data, data1).subscribe( (result) => {
       });
-      console.log(data, data1);
     }
   }
 
   changeState() {
-      if (this.checked === true) {
-        this.checked = false;
-      } else {
-        this.checked = true;
-      }
+    if (this.checked === true) {
+      this.checked = false;
+    } else {
+      this.checked = true;
+    }
   }
 }

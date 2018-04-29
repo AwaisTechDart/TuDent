@@ -1,6 +1,7 @@
+import { ConfirmEqualValidatorDirective } from './signup-tutor/shared/confirm-equal-validator.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,11 +18,12 @@ import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { TeachersListComponent } from './teachers-list/teachers-list.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { TeachersListComponent } from './teachers-list/teachers-list.component';
     FooterComponent,
     SearchComponent,
     TeachersListComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,

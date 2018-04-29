@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear] = "false" #stepper = "matHorizontalStepper">
+<mat-horizontal-stepper [linear] = "true" #stepper = "matHorizontalStepper">
   <mat-step [stepControl] = "form">
       <form class="mt-5" [formGroup] = "form">               <!--Form Start-->
         <div class="container-fluid">
@@ -31,7 +31,8 @@
               
                 <mat-form-field class="w-100 col-md-4">
                   <!--Types of error will exist in password-->
-                  <input matInput type="password" placeholder="Password" formControlName="pass">
+                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="pass">
+                  
                   <mat-error *ngIf="form.get('pass').hasError('required') && form.get('pass').touched || form.invalid">
                     Field required
                   </mat-error>
@@ -43,38 +44,41 @@
       
                 <mat-form-field class="w-100 col-md-4">
                   <!--Types of error will be occurs in Confirm Password-->
-                  <input matInput type="password" placeholder="Confirm Password" formControlName="cpass">
-                  <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched || form.invalid">
+                  <input matInput appConfirmEqualValidator = "pass" [type]="hide ? 'password' : 'text'" placeholder="Confirm Password" formControlName="cpass">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                  
+                  <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched">
                     Field required
                   </mat-error>
                   <mat-error *ngIf="form.get('cpass').hasError('minlength') && form.get('cpass').dirty">
                     Minimum 8 character required
                   </mat-error>
-                  <mat-error *ngIf="">
+                  <mat-error *ngIf="form.get('cpass').hasError('notEqual') && form.get('cpass').touched">
                     Password Doesn`t Match
+                  </mat-error>
+                  <mat-error *ngIf = "form.get('cpass').hasError('Equal') && form.get('cpass').dirty">
+                    <span style="color: green">Password Matched</span>
                   </mat-error>
                   <!--End-->
                 </mat-form-field>
       
-                <mat-form-field class="w-100 col-md-4">
+                <mat-form-field class="w-100 col-md-4" hintLabel="e.g: 3100012345678">
                   <!--Types of error in CNIC -->
-                  <input matInput type="text" placeholder="CNIC" formControlName="cnic">
+                  <input id="cnic" matInput type="text" placeholder="CNIC" formControlName="cnic" maxlength="13" #cnic>
+                  <mat-hint align="end">{{cnic.value?.length || 0}}/13</mat-hint>
                   <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched || form.invalid">
                     Field required
                   </mat-error>
-                  <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
+                  <!-- <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
                     Minimum length 13 required
-                  </mat-error>
-                  <mat-error *ngIf="form.get('cnic').hasError('maxlength') && form.get('cnic').dirty">
-                    Maximum length 13 required
                   </mat-error>
                   <mat-error *ngIf="form.get('cnic').hasError('pattern') && form.get('cnic').dirty && !form.get('cnic').hasError('minlength') && !form.get('cnic').hasError('maxlength')">
                     Special symbol not allowed
-                  </mat-error>
+                  </mat-error> -->
                   <!--End Error -->
                 </mat-form-field>
       
-                <mat-form-field class="w-100 col-md-4">
+                <mat-form-field class="w-100 col-md-4" hintLabel="Above 12 years">
                   <input matInput type="number" placeholder="Age" min="0" formControlName="age">
                   <!--Types of error in Age-->
                   <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched || form.invalid">
