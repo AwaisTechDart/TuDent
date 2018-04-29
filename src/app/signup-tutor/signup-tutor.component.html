@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear] = "true" #stepper = "matHorizontalStepper">
+<mat-horizontal-stepper [linear] = "false" #stepper = "matHorizontalStepper">
   <mat-step [stepControl] = "form">
       <form class="mt-5" [formGroup] = "form">               <!--Form Start-->
         <div class="container-fluid">
@@ -125,7 +125,7 @@
   <mat-step [stepControl] = "form1">
     <!--After CONTINUE Press This form will appear-->
 
-    <form class="mt-5" [formGroup] = "form1">               <!--Form Start-->
+    <form class="mt-5" [formGroup] = "form1" (ngSubmit)= "submit(form.value, form1.value)">               <!--Form Start-->
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">
@@ -133,7 +133,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <input matInput type="text" placeholder="Cell" formControlName="cell">
                 <!--Types of error will be occurs in cell field-->
-                <mat-error *ngIf="form1.get('cell').hasError('required') && form1.get('cell').touched || form.invalid">
+                <mat-error *ngIf="form1.get('cell').hasError('required') && form1.get('cell').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--End Error-->
@@ -142,7 +142,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <input matInput type="text" placeholder="Address" formControlName="address">
                 <!--Types of error will be occurs in Address field-->
-                <mat-error *ngIf="form1.get('address').hasError('required') && form1.get('address').touched || form.invalid">
+                <mat-error *ngIf="form1.get('address').hasError('required') && form1.get('address').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--End Error -->
@@ -151,7 +151,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <!--Types of error will exist in Teacher Statement-->
                 <input matInput type="text" placeholder="Personal Statemnt" formControlName="ps">
-                <mat-error *ngIf="form1.get('ps').hasError('required') && form1.get('ps').touched || form.invalid">
+                <mat-error *ngIf="form1.get('ps').hasError('required') && form1.get('ps').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--End-->
@@ -160,7 +160,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <input matInput type="text" placeholder="Subject Expertise" formControlName="se">
                 <!--Types of error in Age-->
-                <mat-error *ngIf="form1.get('se').hasError('required') && form1.get('se').touched || form.invalid">
+                <mat-error *ngIf="form1.get('se').hasError('required') && form1.get('se').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--Error-->
@@ -169,7 +169,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <textarea matInput type="text" placeholder="Education" formControlName="edu" matTextareaAutosize matAutosizeMinRows="2"></textarea>
                 <!--Types of error will be occurs in Teacher Education-->
-                <mat-error *ngIf="form1.get('edu').hasError('required') && form1.get('edu').touched || form.invalid">
+                <mat-error *ngIf="form1.get('edu').hasError('required') && form1.get('edu').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--End-->
@@ -178,7 +178,7 @@
               <mat-form-field class="w-100 col-md-4">
                 <textarea matInput type="text" placeholder="Teaching Experiance" formControlName="exp" matTextareaAutosize matAutosizeMinRows="2"></textarea>
                 <!--Types of error will be occurs in Teacher Experiance-->
-                <mat-error *ngIf="form1.get('exp').hasError('required') && form1.get('exp').touched || form.invalid">
+                <mat-error *ngIf="form1.get('exp').hasError('required') && form1.get('exp').touched || form1.invalid">
                   Field required
                 </mat-error>
                 <!--End-->
@@ -187,8 +187,12 @@
               <br>
               <br>
 
-              <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
-              <button matStepperNext class="mb-2" mat-raised-button color = "primary" type="submit" >Next</button>
+              <div class="col-md-8 text-center ml-auto mr-auto">
+                <input (click) = "changeState()" type="checkbox" formControlName = "agree"><label style="font-size: 12px; ">&nbsp; By clicking "Register", you agree to the <a href="#">Terms and Privacy Policy</a></label>
+                <br>
+                <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
+                <button [disabled] = "checked" class="mb-2" mat-raised-button color = "primary" type="submit" >Register</button>
+              </div>
               <br>
               <br>
           </div>
@@ -197,22 +201,5 @@
     </form>
   </mat-step>
 
-  <!--Third Step of Material Stepper-->
-  <mat-step [stepControl] = "form2">
-    <ng-template matStepLabel>Done</ng-template>
-    <form class="mt-5" [formGroup] = "form2" (ngSubmit) = "submit(form.value, form1.value, form2.value)">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 text-center ml-auto mr-auto">
-            <input (click) = "changeState()" type="checkbox" formControlName = "agree"><label style="font-size: 12px; ">&nbsp; By clicking "Register", you agree to the <a href="#">Terms and Privacy Policy</a></label>
-            <br>
-            <br>
-            <button matStepperPrevious class="mb-2" mat-raised-button color = "primary">Back</button>
-            <button [disabled] = "checked" class="mb-2" mat-raised-button color = "primary" type="submit" >Done</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </mat-step>
 </mat-horizontal-stepper>
 

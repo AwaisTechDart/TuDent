@@ -12,7 +12,6 @@ import { SignupTutorService } from './signup-tutor.service';
 export class SignupTutorComponent implements OnInit {
   form: FormGroup;
   form1: FormGroup;
-  form2: FormGroup;
   checked = true;
   constructor(private fb: FormBuilder, private serv: SignupTutorService) {
     this.form = fb.group({
@@ -35,29 +34,27 @@ export class SignupTutorComponent implements OnInit {
       'edu' : [null, Validators.required],
       'exp' : [null, Validators.required],
       'se': [null, Validators.required],
+      'agree': [null],
     });
 
-    this.form2 = fb.group({
-      'agree': [null]
-    });
   }
 
   ngOnInit() {
   }
 
-  submit(data, data1, data2) {
+  submit(data, data1) {
     if (this.form.valid === true) {
-      this.serv.signup(data, data1, data2).subscribe( (result) => {
-        
+      this.serv.signup(data, data1).subscribe( (result) => {
       });
+      console.log(data, data1);
     }
   }
 
   changeState() {
-    if (this.checked === true) {
-      this.checked = false;
-    } else {
-      this.checked = true;
-    }
+      if (this.checked === true) {
+        this.checked = false;
+      } else {
+        this.checked = true;
+      }
   }
 }
