@@ -17,8 +17,6 @@ export class ConfirmEqualValidatorDirective implements Validator {
         {
             return {'notEqual' : true};
         }
-        else if (controlToCompare && controlToCompare.value === AC.value){
-            return {'Equal':true};
-        }
+        return null;
     }
 }

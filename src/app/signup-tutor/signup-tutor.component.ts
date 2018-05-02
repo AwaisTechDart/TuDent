@@ -14,6 +14,7 @@ export class SignupTutorComponent implements OnInit {
   form1: FormGroup;
   checked = true;
   hide = true;
+  hide1 =true;
   constructor(private fb: FormBuilder, private serv: SignupTutorService) {
     this.form = fb.group({
       'fullname': [null, Validators.required],
