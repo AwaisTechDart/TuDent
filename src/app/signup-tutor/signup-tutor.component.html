@@ -8,7 +8,7 @@
                 <mat-form-field class="w-100 col-md-4">
                   <input matInput type="text" placeholder="Full Name" formControlName="fullname">
                   <!--Types of error will be occurs in fullname field-->
-                  <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched || form.invalid ">
+                  <mat-error *ngIf="form.get('fullname').hasError('required') && form.get('fullname').touched">
                     Field required
                   </mat-error>
                   <!--End Error-->
@@ -17,7 +17,7 @@
                 <mat-form-field class="w-100 col-md-4">
                   <input matInput type="text" placeholder="Username" formControlName="username">
                   <!--Types of error will be occurs in username field-->
-                  <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched || form.invalid">
+                  <mat-error *ngIf="form.get('username').hasError('required') && form.get('username').touched">
                     Field required
                   </mat-error>
                   <mat-error *ngIf="form.get('username').hasError('minlength') && form.get('username').dirty">
@@ -34,10 +34,10 @@
                   <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="pass">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 
-                  <mat-error *ngIf="form.get('pass').hasError('required') && form.get('pass').touched || form.invalid">
+                  <mat-error *ngIf="form.get('pass').hasError('required')  && form.get('pass').touched">
                     Field required
                   </mat-error>
-                  <mat-error *ngIf="form.get('pass').hasError('minlength') && form.get('pass').dirty">
+                  <mat-error *ngIf="form.get('pass').hasError('minlength')  && form.get('pass').dirty">
                     Minimum 8 character required
                   </mat-error>
                   <!--End-->
@@ -48,13 +48,10 @@
                   <input matInput appConfirmEqualValidator = "pass" [type]="hide1 ? 'password' : 'text'" placeholder="Confirm Password" formControlName="cpass">
                   <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
                   
-                  <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched || form.invalid">
+                  <mat-error *ngIf="form.get('cpass').hasError('required') && form.get('cpass').touched">
                     Field required
                   </mat-error>
-                  <mat-error *ngIf="form.get('cpass').hasError('minlength') && form.get('cpass').dirty">
-                    Minimum 8 character required
-                  </mat-error>
-                  <mat-error *ngIf="form.get('cpass').hasError('notEqual') && form.get('cpass').touched">
+                  <mat-error *ngIf="form.get('cpass').hasError('notEqual')">
                     Password Doesn`t Match
                   </mat-error>
                   <!--End-->
@@ -64,22 +61,22 @@
                   <!--Types of error in CNIC -->
                   <input id="cnic" matInput type="text" placeholder="CNIC" formControlName="cnic" maxlength="13" #cnic>
                   <mat-hint align="end">{{cnic.value?.length || 0}}/13</mat-hint>
-                  <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched || form.invalid">
+                  <mat-error *ngIf="form.get('cnic').hasError('required') && form.get('cnic').touched">
                     Field required
                   </mat-error>
-                  <!-- <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
+                  <mat-error *ngIf="form.get('cnic').hasError('minlength') && form.get('cnic').dirty">
                     Minimum length 13 required
                   </mat-error>
                   <mat-error *ngIf="form.get('cnic').hasError('pattern') && form.get('cnic').dirty && !form.get('cnic').hasError('minlength') && !form.get('cnic').hasError('maxlength')">
                     Special symbol not allowed
-                  </mat-error> -->
+                  </mat-error>
                   <!--End Error -->
                 </mat-form-field>
       
                 <mat-form-field class="w-100 col-md-4" hintLabel="Above 12 years">
                   <input matInput type="number" placeholder="Age" min="0" formControlName="age">
                   <!--Types of error in Age-->
-                  <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched || form.invalid">
+                  <mat-error *ngIf="form.get('age').hasError('required') && form.get('age').touched">
                     Field required
                   </mat-error>
                   <mat-error *ngIf="form.get('age').hasError('min') && form.get('age').dirty">
@@ -91,7 +88,7 @@
                 <mat-form-field class="w-100 col-md-8">
                   <input matInput type="email" placeholder="Email" formControlName="email">
                   <!--Types of error in Email-->
-                  <mat-error *ngIf="form.get('email').hasError('required') && form.get('email').touched || form.invalid">
+                  <mat-error *ngIf="form.get('email').hasError('required') && form.get('email').touched">
                     Field required
                   </mat-error>
                   <mat-error *ngIf="form.get('email').hasError('pattern') && form.get('email').dirty">
@@ -107,13 +104,13 @@
                     <mat-option value="female">Female</mat-option>
                   </mat-select>
                   <!--Type of error In Gender-->
-                  <mat-error *ngIf="form.get('gender').hasError('required') && form.get('gender').touched || form.invalid">
+                  <mat-error *ngIf="form.get('gender').hasError('required') && form.get('gender').touched">
                     Field required
                   </mat-error>
                 </mat-form-field>
                 <br>
                 <br>
-                <button matStepperNext class="mb-2" mat-raised-button color = "primary" type="submit" >Next</button>
+                <button [disabled]= "form.invalid" matStepperNext class="mb-2" mat-raised-button color = "primary" type="submit" >Next</button>
                 <br>
                 <br>
             </div>
