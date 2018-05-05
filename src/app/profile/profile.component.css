@@ -1,0 +1,14 @@
+.image{
+    text-align: center;   
+}
+.image >img{
+    width: 70%;
+    height: auto;
+    max-width: 30vh;
+    max-height: 30vh;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.mat-icon{
+    font-size: 18px;
+}
