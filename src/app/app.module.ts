@@ -23,6 +23,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { TeachersListComponent } from './teachers-list/teachers-list.component';
+import { ApplicationComponent } from './application/application.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TeachersListComponent } from './teachers-list/teachers-list.component';
     FooterComponent,
     SearchComponent,
     TeachersListComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
