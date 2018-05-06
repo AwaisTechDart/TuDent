@@ -18,16 +18,20 @@
             </mat-form-field>
           
             <mat-form-field class="w-100 col-md-4">
-              <input matInput type="password" placeholder="Password" formControlName="pass">
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="pass">
+              <mat-icon matSuffix style="cursor: pointer;" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               <mat-error *ngIf="formG.get('pass').hasError('required') && formG.get('pass').touched">Field required</mat-error>
               <mat-error *ngIf="formG.get('pass').hasError('minlength') && formG.get('pass').dirty">Minimum 8 character required</mat-error>
             </mat-form-field>
   
             <mat-form-field class="w-100 col-md-4">
-              <input matInput type="password" placeholder="Confirm Password" formControlName="copass">
+              <input matInput appConfirmEqualValidator = "pass" [type]="hide1 ? 'password' : 'text'" placeholder="Confirm Password" formControlName="copass">
+              <mat-icon matSuffix style="cursor: pointer;" (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
               <mat-error *ngIf="formG.get('copass').hasError('required') && formG.get('copass').touched">Field required</mat-error>
+              <mat-error *ngIf="formG.get('copass').hasError('notEqual') && !formG.get('copass').hasError('required') && !formG.get('copass').hasError('minlength')">
+                Password Doesn`t Match
+              </mat-error>
               <mat-error *ngIf="formG.get('copass').hasError('minlength') && formG.get('copass').dirty">Minimum 8 character required</mat-error>
-              <mat-error>Password Doesn`t Match</mat-error>
             </mat-form-field>
   
             <mat-form-field class="w-100 col-md-4">

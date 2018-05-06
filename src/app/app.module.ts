@@ -5,7 +5,7 @@ import { NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MatButtonModule, MatInputModule, MatIconModule, MatStepperModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatIconModule, MatStepperModule, MatSnackBarModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -23,7 +23,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { TeachersListComponent } from './teachers-list/teachers-list.component';
-import { ApplicationComponent } from './application/application.component';
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import { ApplicationComponent } from './application/application.component';
     SearchComponent,
     TeachersListComponent,
     ConfirmEqualValidatorDirective,
-    ApplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +55,7 @@ import { ApplicationComponent } from './application/application.component';
     MatButtonModule,
     MatIconModule,
     MatStepperModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {path: '', component: MainComponent},
       {path: 'home', component: MainComponent},
