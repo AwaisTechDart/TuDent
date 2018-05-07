@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LOADIPHLPAPI } from 'dns';
 
 @Component({
   selector: 'app-application',
